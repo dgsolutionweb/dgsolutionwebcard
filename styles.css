@@ -1,0 +1,474 @@
+:root {
+    --primary-color: #4a1e8a;
+    --secondary-color: #2a1058;
+    --accent-color: #9c27b0;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 30px);
+}
+
+.card-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 20px auto;
+    perspective: 1000px;
+    padding: 0 15px;
+}
+
+.profile-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.6s ease;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.logo-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+}
+
+.logo-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.company-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem auto;
+    max-width: 320px;
+    line-height: 1.2;
+}
+
+.slogan {
+    font-size: 1.1rem;
+    margin: 1.2rem 0 2rem;
+    min-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+}
+
+.slogan-word {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.slogan-word.inovacao {
+    background: linear-gradient(45deg, #4a90e2, #63a4e7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slogan-word.tecnologia {
+    background: linear-gradient(45deg, #9c27b0, #ba68c8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slogan-word.resultados {
+    background: linear-gradient(45deg, #f48fb1, #f06292);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slogan-separator {
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    margin: 0 0.2rem;
+}
+
+.typing-text {
+    display: inline-block;
+    background: linear-gradient(120deg, #4a90e2, #9c27b0, #f48fb1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.action-buttons {
+    margin: 1.5rem auto;
+    max-width: 320px;
+}
+
+.btn-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    padding: 0.9rem 1rem;
+    margin: 0.5rem auto;
+    max-width: 320px;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.btn-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-color);
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.3),
+        0 0 20px rgba(255,255,255,0.1);
+    letter-spacing: 0.5px;
+}
+
+.btn-glass:hover::before {
+    left: 100%;
+}
+
+.btn-glass i {
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.btn-glass:hover i {
+    transform: scale(1.2) rotate(5deg);
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.footer-text {
+    max-width: 320px;
+    margin: 2rem auto 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding: 0.5rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.footer-text::before {
+    content: '';
+    position: absolute;
+    top: -0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+.footer-text span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+.footer-text span:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.footer-text .separator {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0.1rem;
+    font-size: 0.6rem;
+    background: none;
+    padding: 0;
+    transform: translateY(-1px);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 2rem 1rem;
+    }
+    
+    .company-name {
+        font-size: 1.8rem;
+        max-width: 280px;
+    }
+    
+    .slogan-container {
+        max-width: 280px;
+        font-size: 0.9rem;
+    }
+    
+    .action-buttons,
+    .btn-glass,
+    .footer-text {
+        max-width: 280px;
+    }
+}
+
+/* Animações personalizadas */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+} 
+
+/* Adicione estas novas classes para animar as palavras individualmente */
+.slogan-word {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.slogan-word.inovacao {
+    color: #4a90e2;
+}
+
+.slogan-word.tecnologia {
+    color: #9c27b0;
+}
+
+.slogan-word.resultados {
+    color: #f48fb1;
+}
+
+.slogan-separator {
+    color: rgba(255,255,255,0.5);
+    margin: 0 8px;
+    font-weight: 300;
+}
+
+/* Adicione a animação de hover */
+.slogan-word:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 320px) {
+    .profile-card {
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .company-name {
+        font-size: 1.6rem;
+        max-width: 250px;
+    }
+    
+    .slogan-container,
+    .action-buttons,
+    .btn-glass,
+    .footer-text {
+        max-width: 250px;
+    }
+    
+    .btn-glass {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ajuste do footer e seus elementos */
+.footer-text {
+    max-width: 320px;
+    margin: 2rem auto 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding: 0.5rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.footer-text::before {
+    content: '';
+    position: absolute;
+    top: -0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+.footer-text span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+.footer-text span:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.footer-text .separator {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0.1rem;
+    font-size: 0.6rem;
+    background: none;
+    padding: 0;
+    transform: translateY(-1px);
+}
+
+/* Responsividade do footer */
+@media (max-width: 480px) {
+    .footer-text {
+        max-width: 280px;
+        font-size: 0.75rem;
+        gap: 0.3rem;
+    }
+
+    .footer-text span {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    .footer-text .separator {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-text {
+        max-width: 250px;
+        font-size: 0.7rem;
+        gap: 0.2rem;
+    }
+
+    .footer-text span {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.7rem;
+    }
+
+    .footer-text .separator {
+        font-size: 0.45rem;
+        margin: 0;
+    }
+}
